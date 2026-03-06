@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        // Read the two strings and convert them to BigInteger objects
+        BigInteger a = new BigInteger(sc.next());
+        BigInteger b = new BigInteger(sc.next());
+        
+        // Use the add() method for a + b
+        BigInteger sum = a.add(b);
+        
+        // Use the multiply() method for a * b
+        BigInteger product = a.multiply(b);
+        
+        // Print the results
+        System.out.println(sum);
+        System.out.println(product);
+        
+        sc.close();
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    }
+}
