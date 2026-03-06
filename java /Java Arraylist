@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // n: number of lines
+        int n = sc.nextInt();
+        
+        // Create a List of Lists to store the rows
+        ArrayList<ArrayList<Integer>> lines = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            // d: number of integers in this specific line
+            int d = sc.nextInt();
+            ArrayList<Integer> row = new ArrayList<>();
+            
+            for (int j = 0; j < d; j++) {
+                row.add(sc.nextInt());
+            }
+            lines.add(row);
+        }
+
+        // q: number of queries
+        int q = sc.nextInt();
+        for (int i = 0; i < q; i++) {
+            int x = sc.nextInt(); // line number (1-indexed)
+            int y = sc.nextInt(); // position number (1-indexed)
+
+            try {
+                // ArrayList is 0-indexed, so we subtract 1 from x and y
+                // get(x-1) retrieves the row, second get(y-1) retrieves the value
+                System.out.println(lines.get(x - 1).get(y - 1));
+            } catch (Exception e) {
+                // If index is out of bounds, it throws an IndexOutOfBoundsException
+                System.out.println("ERROR!");
+            }
+        }
+        sc.close();
+    }
+}
