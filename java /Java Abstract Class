@@ -1,0 +1,13 @@
+
+class MyBook extends Book {
+    /**
+     * Implements the abstract method from the Book class.
+     * It sets the inherited 'title' variable to the provided string.
+     */
+    @Override
+    void setTitle(String s) {
+        this.title = s;
+    }
+}
+//Write MyBook class here
+
