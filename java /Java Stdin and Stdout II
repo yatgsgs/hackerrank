@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        
+        // 1. Read the Integer
+        int i = scan.nextInt();
+        
+        // 2. Read the Double
+        double d = scan.nextDouble();
+        
+        /* CRITICAL STEP: 
+           The previous nextDouble() left a newline character in the buffer.
+           We must call nextLine() once to "consume" it before reading 
+           the actual String.
+        */
+        scan.nextLine(); 
+        
+        // 3. Read the String
+        String s = scan.nextLine();
+
+        // Print results in the specified order
+        System.out.println("String: " + s);
+        System.out.println("Double: " + d);
+        System.out.println("Int: " + i);
+        
+        scan.close();
+    }
+}
