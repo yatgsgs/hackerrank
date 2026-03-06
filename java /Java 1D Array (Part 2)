@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    public static boolean canWin(int leap, int[] game, int i) {
+        // Base Case: If you move off the end of the array, you win!
+        if (i >= game.length) {
+            return true;
+        }
+        
+        // Base Case: If you are at an invalid index or on a 1, you lose this path
+        if (i < 0 || game[i] == 1) {
+            return false;
+        }
+
+        // Mark current cell as visited to prevent infinite recursion
+        game[i] = 1;
+
+        // Recursive Steps: Try all possible moves
+        // If ANY of these return true, then canWin is true
+        return canWin(leap, game, i + leap) || 
+               canWin(leap, game, i + 1)    || 
+               canWin(leap, game, i - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int q = scan.nextInt();
+        while (q-- > 0) {
+            int n = scan.nextInt();
+            int leap = scan.nextInt();
+            
+            int[] game = new int[n];
+            for (int i = 0; i < n; i++) {
+                game[i] = scan.nextInt();
+            }
+
+            System.out.println(canWin(leap, game, 0) ? "YES" : "NO");
+        }
+        scan.close();
+    }
+}
