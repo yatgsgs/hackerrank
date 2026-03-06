@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // 1. Initialize the List
+        int N = sc.nextInt();
+        List<Integer> L = new LinkedList<>();
+        for (int i = 0; i < N; i++) {
+            L.add(sc.nextInt());
+        }
+
+        // 2. Process Queries
+        int Q = sc.nextInt();
+        for (int i = 0; i < Q; i++) {
+            String queryType = sc.next();
+            if (queryType.equals("Insert")) {
+                int index = sc.nextInt();
+                int value = sc.nextInt();
+                // List.add(index, element) handles the shift automatically
+                L.add(index, value);
+            } else if (queryType.equals("Delete")) {
+                int index = sc.nextInt();
+                // List.remove(index) handles the shift automatically
+                L.remove(index);
+            }
+        }
+        sc.close();
+
+        // 3. Print the Result
+        for (Integer num : L) {
+            System.out.print(num + " ");
+        }
+    }
+}
