@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt(); // Number of queries
+        
+        for (int i = 0; i < t; i++) {
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+            
+            int currentSum = a;
+            for (int j = 0; j < n; j++) {
+                // Math.pow returns a double, so we cast it to int
+                // 2^j * b is added to the previous sum
+                currentSum += (int)Math.pow(2, j) * b;
+                
+                // Print the term followed by a space
+                System.out.print(currentSum + " ");
+            }
+            // Move to a new line after each query series is finished
+            System.out.println();
+        }
+        in.close();
+    }
+}
