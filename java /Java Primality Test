@@ -1,0 +1,23 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Read the input as a string to handle 100 digits
+        String n = scanner.nextLine();
+        scanner.close();
+        
+        // Create a BigInteger object
+        BigInteger bigInt = new BigInteger(n);
+        
+        // Use isProbablePrime with a certainty of 100
+        // It returns true if the number is prime, false if it's definitely composite
+        if (bigInt.isProbablePrime(100)) {
+            System.out.println("prime");
+        } else {
+            System.out.println("not prime");
+        }
+    }
+}
