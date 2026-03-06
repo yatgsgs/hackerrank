@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int lineNumber = 1;
+        
+        // hasNext() returns false when the end of the input stream is reached
+        while (scan.hasNext()) {
+            // Read the entire line
+            String line = scan.nextLine();
+            
+            // Print line number, space, and the content
+            System.out.println(lineNumber + " " + line);
+            
+            // Increment line counter for the next iteration
+            lineNumber++;
+        }
+        
+        scan.close();
+    }
+}
